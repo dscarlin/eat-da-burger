@@ -1,6 +1,6 @@
 // Dependencies
 var express = require("express");
-const db = require('./models')
+var db = require('./models')
 
 // Create an instance of the express app.
 var app = express();
@@ -18,6 +18,8 @@ app.use(express.static("public"));
 
 // Import routes and give the server access to them.
 require("./controllers/burgersController.js")(app);
+
+
 
 
 db.sequelize.sync().then(() => {

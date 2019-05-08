@@ -17,7 +17,7 @@ body {
 input {
   text-overflow: ellipsis;
   overflow: scroll;
-  
+  font: 1; 
 }
 
 .list-reset {
@@ -73,11 +73,16 @@ h1 {
   color: #f30;
 }
 
-.inputMock {
+/* .inputMock {
   background: white;
   width: 100%;
-}
+} */
 
 .undevoured {
   font-weight: bold;
+  line-height: 3.4em;
+}
+
+.w100 {
+  width: 100%;
 }
