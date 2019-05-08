@@ -1,5 +1,6 @@
 // Dependencies
 var express = require("express");
+const db = require('./models')
 
 // Create an instance of the express app.
 var app = express();
@@ -16,10 +17,11 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Import routes and give the server access to them.
-var routes = require("./controllers/burgersController.js");
+require("./controllers/burgersController.js")(app);
 
-app.use(routes);
 
-app.listen(PORT, function() {
-  console.log("Listening on port:%s", PORT);
-});
+db.sequelize.sync().then(() => {
+  app.listen(PORT, function() {
+    console.log("Listening on port:%s", PORT);
+  });
+})

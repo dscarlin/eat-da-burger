@@ -8,6 +8,7 @@ function displayPage() {
   // Send the GET request.
   $.get("/api/burgers/").then(
     function(burgers) {
+      console.log(burgers)
       renderTemplate(burgers);
     }
   );
@@ -16,6 +17,7 @@ function displayPage() {
 function renderTemplate(burgers) {
   $("#burgers").empty();
   $("#devoured").empty();
+  $('#button').empty();
 
   for (let i = 0; i < burgers.length; i++) {
     let burger = burgers[i];
@@ -23,18 +25,16 @@ function renderTemplate(burgers) {
       let devouredHTML = `<input class="form-control" type="text" placeholder="${burger.id} . ${burger.burger_name}" readonly>`
       $("#devoured").append(devouredHTML);
     } else {
-      let burgerHTML = `
-          <div class="col-md-9 text-center">
-              <pre>${burger.id}. ${burger.burger_name}
-              </pre>
-          </div>
-          <div class="col-md-3 text-center">
-              <form class="devour-form button-size">
-                  <input input type="hidden" class="burger_id" type="text" value=${burger.id}><br>
-                  <button type="submit" class="btn btn-default">Devour it!</button>
-              </form>
-          </div>`;
+      let burgerHTML = 
+      `<input class="form-control undevoured" type="text" value="${burger.id} . ${burger.burger_name}" readonly>`
+      
       $("#burgers").append(burgerHTML);
+      let devourButtonHTML =  
+     `<form class="devour-form button-size">
+        <input input type="hidden" class="burger_id" type="text" value=${burger.id}>
+        <button type="submit" class="btn btn-default buttonBorder">Devour it!</button>
+      </form>`
+      $('#button').append(devourButtonHTML)
     }
   }
 }

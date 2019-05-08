@@ -14,6 +14,12 @@ body {
   border: 0;
 }
 
+input {
+  text-overflow: ellipsis;
+  overflow: scroll;
+  
+}
+
 .list-reset {
   padding: 0;
   margin: 0;
@@ -54,8 +60,8 @@ body {
   border-width: 3px;
 }
 
-.button-size {
-  padding-bottom: 20px;
+.buttonBorder {
+  border: solid 1px #ced4da;
 }
 
 #text-enter-button {
@@ -65,4 +71,13 @@ body {
 
 h1 {
   color: #f30;
+}
+
+.inputMock {
+  background: white;
+  width: 100%;
+}
+
+.undevoured {
+  font-weight: bold;
 }
