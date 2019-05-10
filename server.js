@@ -18,11 +18,11 @@ app.use(express.static("public"));
 
 // Import routes and give the server access to them.
 require("./controllers/burgersController.js")(app);
+// db.burgers.hasOne(db.customer)
 
 
 
-
-db.sequelize.sync().then(() => {
+db.sequelize.sync({force: true}).then(() => {
   app.listen(PORT, function() {
     console.log("Listening on port:%s", PORT);
   });

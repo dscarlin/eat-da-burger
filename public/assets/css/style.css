@@ -45,7 +45,7 @@ input {
   text-align: center;
 }
 
-#enter_text {
+.enter_text {
   width: 400px;
   height: 80px;
   padding-top: 10px;
@@ -80,9 +80,12 @@ h1 {
 
 .undevoured {
   font-weight: bold;
-  line-height: 3.4em;
 }
 
 .w100 {
   width: 100%;
+}
+
+.ht100 {
+  height: 100%;
 }

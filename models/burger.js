@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false, 
       validate: {
-        notNull: true
+        notNull: true,
+        len: [2,100]
       }
     },
     devoured: {
@@ -19,5 +20,12 @@ module.exports = (sequelize, DataTypes) => {
         }
     }
   });
+
+  burgers.associate = (models) => {
+    burgers.belongsTo(models.Customers, {
+    });
+  };  
+
+
   return burgers;
 }
