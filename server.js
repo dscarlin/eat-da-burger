@@ -18,7 +18,6 @@ app.use(express.static("public"));
 
 // Import routes and give the server access to them.
 require("./controllers/burgersController.js")(app);
-// db.burgers.hasOne(db.customer)
 
 
 
