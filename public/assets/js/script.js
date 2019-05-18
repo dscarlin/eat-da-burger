@@ -23,7 +23,7 @@ function renderTemplate(burgers) {
     let burger = burgers[i];
     if (burger.devoured) {
       console.log('devoured burger from burger table with joined customer table info: '+ JSON.stringify(burger,null,2))
-      let devouredHTML = `<div class="form-control devoured">${burger.id} . ${burger.burger_name}  <p><small>devoured by: ${burger.Customer.customer_name}<small><p><div>`
+      let devouredHTML = `<div class="form-control devoured">${burger.id} . ${burger.burger_name}  <p><small>devoured by: ${burger.Customer.customer_name}</small></p></div>`
       $("#devoured").append(devouredHTML);
     } else {
       let burgerHTML = 
@@ -80,6 +80,7 @@ function setupEventHandlers() {
     }).then(function(data) {
       console.log("Item inserted into burgers table: " + JSON.stringify(data, null, 2));
       // Rerender the page with the updated list
+      $('#enter_text').val('')
       displayPage();
     });
   });

@@ -21,8 +21,8 @@ require("./controllers/burgersController.js")(app);
 
 
 
-db.sequelize.sync({force: true}).then(() => {
-  app.listen(PORT, function() {
-    console.log("Listening on port:%s", PORT);
-  });
-})
+db.sequelize.sync({force: true}).then(() =>
+  app.listen(PORT, () =>
+    console.log("Listening on port:%s", PORT)
+  )
+);
